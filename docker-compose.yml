@@ -1,0 +1,13 @@
+---
+services:
+  ecoflow-presence:
+    image: "nekoyos/ecoflow-presence:latest"
+    restart: unless-stopped
+    environment:
+      ECOFLOW_API_HOST: ${ECOFLOW_API_HOST:?set ECOFLOW_API_HOST in .env}
+      ECOFLOW_ACCESS_KEY: ${ECOFLOW_ACCESS_KEY:?set ECOFLOW_ACCESS_KEY in .env}
+      ECOFLOW_SECRET_KEY: ${ECOFLOW_SECRET_KEY:?set ECOFLOW_SECRET_KEY in .env}
+      ECOFLOW_CLIENT_ID: ${ECOFLOW_CLIENT_ID:-ecoflow_presence_static}
+      ECOFLOW_KEEPALIVE: ${ECOFLOW_KEEPALIVE:-30}
+      ECOFLOW_QOS: ${ECOFLOW_QOS:-0}
+      ECOFLOW_QUIET: ${ECOFLOW_QUIET:-false}
